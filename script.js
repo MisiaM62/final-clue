@@ -30,70 +30,69 @@ startBtn.addEventListener("click", () => {
 */
 
 revealBtn.addEventListener("click", () => {
-const announcement = new SpeechSynthesisUtterance(
-"Attention please. Final boarding call for passenger Paulina Maleśkiewicz."
-);
-
-announcement.lang = "en-US";
-
-window.speechSynthesis.speak(announcement);
-
-  revealBtn.innerHTML = "Searching destination...";
 
   revealBtn.disabled = true;
 
+  const messages = [
+    "Searching destination... 🔎",
+    "Confirming itinerary... ✈️",
+    "Boarding pass updated... 🎫"
+  ];
 
-  setTimeout(()=>{
-
-    revealBtn.innerHTML = "Decrypting itinerary...";
-
-  },1500);
-
-
-
-  setTimeout(()=>{
+  let step = 0;
 
 
-    destination.innerHTML = "";
+  const loading = setInterval(() => {
 
-    const text = "GENUA 🇮🇹";
+    revealBtn.innerHTML = messages[step];
 
-    let i = 0;
-
-
-    const typing = setInterval(()=>{
+    step++;
 
 
-      destination.innerHTML += text[i];
+    if(step >= messages.length){
 
-      i++;
-
-
-      if(i >= text.length){
-
-        clearInterval(typing);
-
-        showFinal();
-
-      }
+      clearInterval(loading);
 
 
-    },200);
+      setTimeout(() => {
+
+        destination.innerHTML = "";
+
+        const text = "GENUA 🇮🇹";
+
+        let i = 0;
 
 
+        const typing = setInterval(() => {
 
-  },3000);
 
+          destination.innerHTML += text[i];
+
+          i++;
+
+
+          if(i >= text.length){
+
+            clearInterval(typing);
+
+            showFinal();
+
+          }
+
+
+        },250);
+
+
+      },1000);
+
+
+    }
+
+
+  },1200);
 
 
 });
-
-
-
-
-
-function showFinal(){
-
 
  setTimeout(()=>{
 
@@ -102,6 +101,10 @@ function showFinal(){
 
 
   final.classList.remove("hidden");
+window.scrollTo({
+  top:0,
+  behavior:"smooth"
+});   
 flightPath.classList.remove("hidden");
 
   createConfetti();
