@@ -5,11 +5,10 @@ const intro = document.querySelector(".intro-card");
 const revealBtn = document.getElementById("revealBtn");
 const destination = document.getElementById("destination");
 const final = document.getElementById("final");
-const flightPath = document.getElementById("flightPath");
 
-/*
-  OTWARCIE BILETU
-*/
+
+
+/* OTWARCIE BILETU */
 
 startBtn.addEventListener("click", () => {
 
@@ -25,13 +24,13 @@ startBtn.addEventListener("click", () => {
 
 
 
-/*
-  ODKRYCIE KIERUNKU
-*/
+/* ODKRYCIE KIERUNKU */
 
 revealBtn.addEventListener("click", () => {
 
+
   revealBtn.disabled = true;
+
 
   const messages = [
     "Searching destination... 🔎",
@@ -39,24 +38,30 @@ revealBtn.addEventListener("click", () => {
     "Boarding pass updated... 🎫"
   ];
 
+
   let step = 0;
 
 
   const loading = setInterval(() => {
 
+
     revealBtn.innerHTML = messages[step];
+
 
     step++;
 
 
-    if (step >= messages.length) {
+    if(step >= messages.length){
+
 
       clearInterval(loading);
 
 
       setTimeout(() => {
 
+
         destination.innerHTML = "";
+
 
         const text = "GENUA 🇮🇹";
 
@@ -65,35 +70,44 @@ revealBtn.addEventListener("click", () => {
 
         const typing = setInterval(() => {
 
+
           destination.innerHTML += text[i];
+
 
           i++;
 
 
-          if (i >= text.length) {
+          if(i >= text.length){
+
 
             clearInterval(typing);
 
+
             showFinal();
+
 
           }
 
-        }, 250);
+
+        },250);
 
 
-      }, 1000);
+      },1000);
+
 
     }
 
 
-  }, 1200);
+  },1200);
 
 
 });
 
 
 
-function showFinal() {
+
+
+function showFinal(){
 
 
   setTimeout(() => {
@@ -105,31 +119,17 @@ function showFinal() {
     final.classList.remove("hidden");
 
 
-    flightPath.classList.remove("hidden");
-
-
-    window.scrollTo({
-
-      top: 0,
-
-      behavior: "smooth"
-
-    });
-
-
     createConfetti();
 
 
-  }, 1500);
+  },1500);
 
 
 }
 
 
 
-/*
-  KONFETTI
-*/
+
 
 function createConfetti(){
 
@@ -152,30 +152,20 @@ function createConfetti(){
   piece.style.position="fixed";
   piece.style.width="10px";
   piece.style.height="10px";
-
-  piece.style.background=
+  piece.style.background =
   colors[Math.floor(Math.random()*colors.length)];
 
 
-  piece.style.left=
-  Math.random()*100+"vw";
-
-
+  piece.style.left=Math.random()*100+"vw";
   piece.style.top="-20px";
-
-
   piece.style.borderRadius="50%";
-
-
   piece.style.zIndex="10";
 
 
   document.body.appendChild(piece);
 
 
-
-  const animation =
-  piece.animate([
+  const animation = piece.animate([
 
     {
       transform:"translateY(0) rotate(0)",
@@ -183,26 +173,19 @@ function createConfetti(){
     },
 
     {
-      transform:
-      `translateY(100vh) rotate(720deg)`,
+      transform:"translateY(100vh) rotate(720deg)",
       opacity:0
     }
 
-
   ],{
 
-
-    duration:
-    3000 + Math.random()*2000,
-
-
+    duration:3000 + Math.random()*2000,
     easing:"ease-out"
 
   });
 
 
-
-  animation.onfinish=()=>{
+  animation.onfinish = () => {
 
     piece.remove();
 
