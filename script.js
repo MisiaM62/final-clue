@@ -5,7 +5,7 @@ const intro = document.querySelector(".intro-card");
 const revealBtn = document.getElementById("revealBtn");
 const destination = document.getElementById("destination");
 const final = document.getElementById("final");
-
+const flightPath = document.getElementById("flightPath");
 
 /*
   OTWARCIE BILETU
@@ -102,7 +102,7 @@ function showFinal(){
 
 
   final.classList.remove("hidden");
-
+flightPath.classList.remove("hidden");
 
   createConfetti();
 
