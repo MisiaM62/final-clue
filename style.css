@@ -390,3 +390,21 @@ opacity:0;
 }
 
 }
+.flight-line {
+
+  font-size:22px;
+  color:white;
+
+  margin:25px;
+
+  animation:
+  appear 2s ease;
+
+}
+
+
+#flightPath {
+
+ text-align:center;
+
+}
