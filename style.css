@@ -348,3 +348,45 @@ strong {
  }
 
 }
+.flight-animation {
+
+  font-size:40px;
+
+  animation:
+  fly 4s ease-in-out forwards;
+
+}
+
+
+@keyframes fly {
+
+
+0% {
+
+transform:
+translateX(-100px)
+translateY(30px);
+
+opacity:0;
+
+}
+
+
+50% {
+
+opacity:1;
+
+}
+
+
+100% {
+
+transform:
+translateX(100px)
+translateY(-20px);
+
+opacity:0;
+
+}
+
+}
