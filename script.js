@@ -20,6 +20,13 @@ startBtn.addEventListener("click", () => {
 
 
 revealBtn.addEventListener("click", () => {
+  const announcement = new SpeechSynthesisUtterance(
+  "Attention please. Final boarding call for Paulina."
+);
+
+announcement.lang = "en-US";
+
+window.speechSynthesis.speak(announcement);
 
   revealBtn.disabled = true;
 
