@@ -49,7 +49,7 @@ revealBtn.addEventListener("click", () => {
     step++;
 
 
-    if(step >= messages.length){
+    if (step >= messages.length) {
 
       clearInterval(loading);
 
@@ -65,13 +65,12 @@ revealBtn.addEventListener("click", () => {
 
         const typing = setInterval(() => {
 
-
           destination.innerHTML += text[i];
 
           i++;
 
 
-          if(i >= text.length){
+          if (i >= text.length) {
 
             clearInterval(typing);
 
@@ -79,39 +78,49 @@ revealBtn.addEventListener("click", () => {
 
           }
 
+        }, 250);
 
-        },250);
 
-
-      },1000);
-
+      }, 1000);
 
     }
 
 
-  },1200);
+  }, 1200);
 
 
 });
 
- setTimeout(()=>{
 
 
-  boarding.classList.add("hidden");
+function showFinal() {
 
 
-  final.classList.remove("hidden");
-window.scrollTo({
-  top:0,
-  behavior:"smooth"
-});   
-flightPath.classList.remove("hidden");
-
-  createConfetti();
+  setTimeout(() => {
 
 
- },1500);
+    boarding.classList.add("hidden");
 
+
+    final.classList.remove("hidden");
+
+
+    flightPath.classList.remove("hidden");
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+
+    createConfetti();
+
+
+  }, 1500);
 
 
 }
@@ -201,6 +210,5 @@ function createConfetti(){
 
 
  }
-
 
 }
