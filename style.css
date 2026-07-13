@@ -408,3 +408,13 @@ opacity:0;
  text-align:center;
 
 }
+.italy-flag {
+
+  font-size:55px;
+
+  animation:
+  appear 1.5s ease;
+
+  margin-bottom:15px;
+
+}
